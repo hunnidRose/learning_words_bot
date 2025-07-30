@@ -61,3 +61,18 @@ def basic_words_parser(path: str) -> Optional[list]:
             )
         else:
             return basic_words_list[1::]
+
+
+def get_dsn() -> str:
+    host = Config.DB_HOST
+    port = Config.DB_PORT
+    name = Config.DB_NAME
+    user = Config.DB_USER
+    password = Config.DB_PASSWORD
+    dsn = f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{name}'
+    return dsn
+
+
+def get_token() -> str:
+    token = Config.BOT_TOKEN
+    return token
